@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+</head>
+<body class="bg-[#F8F8F8]">
+    <div class="flex">
+      <nav class="w-[22%] h-[100vh] overflow-y-auto bg-[#fff]">
+        <div class="p-[35px] border-b-[3px] border-[#EBEBFF]">
+          <img src="./images/Intex-logo.svg" alt="site-logo" width="362" height="48">
+        </div>
+        <ul class="pt-[33px] pl-[41px] space-y-[15px]">
+          <li> 
+            <a class="text-[25px] text-[#009398] leading-[35px] font-medium active:text-[#009398]" href="#">Продукты</a>
+          </li>
+          <li> 
+            <a class="text-[25px] text-[#B4B4C6] leading-[35px] font-medium active:text-[#009398]" href="#">Заказы</a>
+          </li>
+          <li> 
+            <a class="text-[25px] text-[#B4B4C6] leading-[35px] font-medium active:text-[#009398]" href="#">Категории</a>
+          </li>
+          <li> 
+            <a class="text-[25px] text-[#B4B4C6] leading-[35px] font-medium active:text-[#009398]" href="#">Сайт</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="w-[78%] h-[100vh] overflow-y-auto">
+        <div class="flex items-center justify-end gap-[31px] border-b-[3px] border-[#EBEBFF]">
+            <a class="text-[22px] text-[#A6A6A6] leading-[25px] font-medium pr-[28px] border-r-[2px] border-[#A6A6A6]" href="/" >Просмотр веб-сайта</a>
+            <button class="flex items-center gap-[10px] py-[33.5px] pr-[61px]">
+              <img src="./images/person-img.svg" alt="person-img" width="18" height="22">
+              <span class="text-[22px] text-[#A6A6A6] leading-[25px] font-medium" >Joe Melton</span>
+            </button>
+        </div>
+        <div class="flex items-center justify-between pt-[22px] px-[42px] pb-[40px]"> 
+          <label class="inline-block w-[357px] py-[6px] pl-[34px] pr-[25px] bg-white rounded-[30px] flex">
+             <input class="py-[14px] w-[80%] outline-none  border-r-[1px] border-[#A6A6A6] text-[23px] leading-[23px] placeholder::text-[23px] placeholder::text-[23px] " type="text" name="serarchValue" placeholder="Найти">
+             <img class="ml-[29px]" src="./images/serarch.svg" alt="serarch-icon" width="24" height="24">
+          </label>
+          <button onclick="handleAddProductBtn()" class="add-product-btn w-[222px] py-[20px] font-bold text-center bg-[#3F8C8E] rounded-[29px] text-white text-[20px] leading-[23px]" type="submit">+ Добавить продукт</button>
+        </div>
+        <ul class="catigory-list flex items-center justify-center gap-[46px] mb-[74px]">
+          <li id="1" class="text-[#009398] text-[35px] font-bold leading-[40px] border-b-[2px] border-[#009398] pb-2 cursor-pointer">Каркасные</li>
+          <li id="2" class="text-[#A6A6A6] text-[35px] font-bold leading-[40px] border-b-[2px] border-transparent pb-2 cursor-pointer">Надувные</li>
+        </ul>
+        <div class="px-[42px]">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-white">
+                <th class="py-[17px] text-[20px] text-center text-black font-medium leading-[35px] rounded-tl-[30px] rounded-bl-[30px]">Изображение</th>
+                <th class="py-[17px] text-[20px] text-start text-black font-medium leading-[35px]">Цена(сум)</th>
+                <th class="py-[17px] text-[20px] text-start text-black font-medium leading-[35px]">Количество</th>
+                <th class="py-[17px] text-[20px] text-start text-black font-medium leading-[35px]">Рамка</th>
+                <th class="py-[17px] text-[20px] text-start text-black font-medium leading-[35px]">категория</th>
+                <th class="py-[17px] text-[20px] text-start text-black font-medium leading-[35px] rounded-tr-[30px] rounded-br-[30px]">Действия</th>
+              </tr>
+            </thead>
+            <tbody class="pool-tbody">
+              <tr class="bg-white">
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper" class="modal-wrappper scale-0 wrapper duration-300 fixed top-0 bottom-0 right-0 left-0 backdrop-blur">
+      <div class="modal-inner w-[1000px] h-[700px] bg-[#F8F8F8] shadow-md absolute top-0 bottom-0 right-0 left-0 m-auto rounded-[20px] ">
+      </div>
+    </div>
+    <script src="./js/admin/admin.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+    </script>
+</body>
+</html>
